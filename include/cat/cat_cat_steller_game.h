@@ -1,10 +1,10 @@
-ifndef CAT_CAT_STELLER_GAME_H
-#define CAT_CAT_STELLER_GAME_H
+ifndef CAT_CAT_STELLAR_GAME_H
+#define CAT_CAT_STELLAR_GAME_H
 
 #include "mj/mj_game.h"
 namespace cat
 {
-    class cat_cat_steller_game : public mj::game
+    class cat_cat_stellar_game : public mj::game
     {
         public:
         /**
