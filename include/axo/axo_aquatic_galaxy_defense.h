@@ -17,7 +17,7 @@ class axo_aquatic_galaxy_defense : public mj::game
          * @param completed_games how many microgames the player has completed so far
          * @param data shared information, such as a rng and number of frames left in the microgame
          */
-        axo_aquatic_galaxy_defense(const mj::game_data& data);
+        axo_aquatic_galaxy_defense(int completed_games, const mj::game_data& data);
        
         /**
          * The instructions given to the player at the beginning of the microgame.
