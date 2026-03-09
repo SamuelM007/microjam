@@ -1,4 +1,4 @@
-
+#include "bn_keypad.h"
 #include "kgg/kgg_game_name.h"
 #include "mj/mj_game_list.h"
 
@@ -31,9 +31,21 @@ int kgg_game_name::total_frames() const
 
 mj::game_result kgg_game_name::play(const mj::game_data& data)
 {
+    
     (void)data;
+
     _player.update();
-    _victory = true;
+
+    if(bn::keypad::a_pressed())
+    {
+        _victory = true;
+    }
+
+    if(bn::keypad::b_pressed())
+    {
+        _victory = false;
+    }
+
     return mj::game_result();
 }
 
