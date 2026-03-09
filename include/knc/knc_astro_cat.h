@@ -20,7 +20,6 @@ namespace knc {
     private:
         cat _cat;
         planet _planet;
-        bool _victory;
         bool _hit;
     };
 }

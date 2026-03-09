@@ -1,4 +1,4 @@
-#include "../../include/knc/knc_astro_cat.h"
+#include "knc/knc_astro_cat.h"
 #include "mj/mj_game_list.h"
 namespace {
     constexpr bn::string_view code_credits[] = { "knc" };
@@ -14,13 +14,12 @@ namespace knc {
         // start in middle, speed number 2
         _cat(bn::fixed_point(0,0), 2),
         _planet(bn::fixed_point(0, -80), 2),
-        _victory(false),
         _hit(false)
     {}
 
     bn::string<16> knc_astro_cat::title() const
     {
-        return "Astro Cat";
+        return "Dodge Them Fire!";
     }
 
     int knc_astro_cat::total_frames() const
@@ -37,20 +36,16 @@ namespace knc {
             bn::fixed x = bn::fixed(data.random.get_int(200)) - 100;
             _planet = planet(bn::fixed_point(x, -80), 2);
         }
-
+        // if planet hit cat, end game 
         if (_planet.collides_with(_cat.position(), cat::COLLISION_RADIUS)) {
             _hit = true;
         }
-        if (data.pending_frames <= 0 && !_hit) {
-            _victory = true;
-        }
-
         return mj::game_result(_hit, false);
     }
 
     bool knc_astro_cat::victory() const
     {
-        return _victory;
+        return !_hit;
     }
 
     void knc_astro_cat::fade_in(const mj::game_data&)

@@ -1,4 +1,4 @@
-#include "../../include/knc/knc_planet.h"
+#include "knc/knc_planet.h"
 #include "bn_sprite_items_fire_planet.h"
 
 namespace knc {
