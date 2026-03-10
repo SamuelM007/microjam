@@ -29,7 +29,9 @@ namespace cat
  */
 cat_cat_stellar_game::cat_cat_stellar_game([[maybe_unused]] int completed_games, [[maybe_unused]] const mj::game_data& data) :
     mj::game("cat"),
-    _player({0, 0}, 2),
+    _difficulty(recommended_difficulty_level(completed_games, data)),
+    _stars_to_win(_recommended_stars_to_win(_difficulty)),
+    _player({0, 0}, _recommended_player_speed(_difficulty)),
     _stars_collected(0),
     _background(bn::regular_bg_items::cat_background.create_bg(0, 0))
     {
@@ -39,6 +41,37 @@ cat_cat_stellar_game::cat_cat_stellar_game([[maybe_unused]] int completed_games,
             _stars[i] = bn::sprite_items::cat_star.create_sprite({x, y});
         }
     }
+
+    bn::fixed cat_cat_stellar_game::_recommended_player_speed(mj::difficulty_level difficulty)
+{
+    switch(difficulty)
+    {
+        case mj::difficulty_level::EASY:
+            return 1.5;
+        case mj::difficulty_level::NORMAL:
+            return 2.0;
+        case mj::difficulty_level::HARD:
+            return 2.5;
+        default:
+            return 2.0;
+    }
+}
+
+int cat_cat_stellar_game::_recommended_stars_to_win(mj::difficulty_level difficulty)
+{
+    switch(difficulty)
+    {
+        case mj::difficulty_level::EASY:
+            return 2;
+        case mj::difficulty_level::NORMAL:
+            return 3;
+        case mj::difficulty_level::HARD:
+            return 4;
+        default:
+            return 3;
+    }
+}
+
 
     
 

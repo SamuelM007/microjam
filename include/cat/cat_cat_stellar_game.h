@@ -71,9 +71,12 @@ namespace cat
 
     private:
         // The number of stars the player must collect to win
-        static constexpr int _stars_to_win = 3;
+        //static constexpr int _stars_to_win = 3;
         static constexpr int _total_stars = 5;
         static constexpr bn::fixed _collect_distance = 16;
+
+        mj::difficulty_level _difficulty;
+        int _stars_to_win;
 
         cat_player _player;
         bn::array<bn::optional<bn::sprite_ptr>, 5> _stars;
@@ -82,8 +85,11 @@ namespace cat
         void _check_collection();
 
         bn::regular_bg_ptr _background;
-        bn::fixed _recommended_player_speed(mj::difficulty_level difficulty);
-};
+
+        //helper function
+      static bn::fixed _recommended_player_speed(mj::difficulty_level difficulty);
+        static int _recommended_stars_to_win(mj::difficulty_level difficulty);
+    };
 }
 
 #endif // CAT_CAT_STELLAR_GAME_H
