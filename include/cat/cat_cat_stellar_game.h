@@ -82,6 +82,8 @@ namespace cat
         int _stars_to_win;
 
         cat_player _player;
+        bn::sprite_ptr _enemy;
+        
         bn::array<bn::optional<bn::sprite_ptr>, _total_stars> _stars;
         int _stars_collected;
         bn::sprite_text_generator _text_generator;
