@@ -3,8 +3,9 @@
 
 #include <bn_fixed_point.h>
 #include <bn_sprite_ptr.h>
-#include <bn_display.h>
 #include <bn_rect.h>
+
+#include "mar/mar_bounds.h"
 
 // All game functions/classes/variables/constants scoped to the namespace
 namespace mar
@@ -15,11 +16,6 @@ namespace mar
      */
     class mar_player
     {
-        // The bounds of the screen
-        static constexpr int MAX_X = bn::display::width() / 2;
-        static constexpr int MIN_X = -bn::display::width() / 2;
-        static constexpr int MAX_Y = bn::display::height() / 2;
-        static constexpr int MIN_Y = -bn::display::height() / 2;
 
     public:
         /**

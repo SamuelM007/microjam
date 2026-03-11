@@ -4,6 +4,7 @@
 #include "mj/mj_game.h"
 #include "mar/mar_player.h"
 #include "mar/mar_enemy.h"
+#include "mar/mar_bounds.h"
 
 namespace mar
 {
