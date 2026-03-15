@@ -1,4 +1,4 @@
-#ifndef MAR_PLAYER_H 
+#ifndef MAR_PLAYER_H
 #define MAR_PLAYER_H
 
 #include <bn_fixed_point.h>
@@ -29,8 +29,9 @@ namespace mar
         /**
          * returns
          */
-        bn::rect &rect() { 
-            return _rect; 
+        bn::rect &rect()
+        {
+            return _rect;
         }
 
         /**
@@ -44,6 +45,7 @@ namespace mar
         // The pixels/frame the player moves in each dimension
         bn::fixed _speed;
         bn::rect _rect;
+        int pause_timer = 30; // Timer to pause the player after moving up
     };
 
 }
